@@ -1,7 +1,7 @@
 import React from 'react'
 import { useIntersectionObserver } from '../../hooks/useIntersectionObserver'
 import { useLocalStorage } from '../../hooks/useLocalStorage'
-import { useSetLikeAnonymousPhoto } from '../../hoc/mutationLikePhotos'
+import { useSetLikeAnonymousPhoto } from '../../Graphql/mutationLikePhotos'
 import { ImgWrapper, Img, Article } from './styles'
 import { FavButton } from '../FavButton'
 

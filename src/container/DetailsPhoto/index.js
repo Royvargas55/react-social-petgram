@@ -1,7 +1,7 @@
 import React from 'react'
 import { Loader } from '../../components/Loader'
 import { CenterLoader } from './styles'
-import { useGetSinglePhoto } from '../../hoc/queryPhotos'
+import { useGetSinglePhoto } from '../../Graphql/queryPhotos'
 import { PhotoCard } from '../../components/PhotoCard'
 
 export const DetailsPhotoCard = ({ id }) => {

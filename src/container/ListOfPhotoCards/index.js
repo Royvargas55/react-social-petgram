@@ -2,7 +2,7 @@ import React from 'react'
 import { PhotoCard } from '../../components/PhotoCard'
 import { Loader } from '../../components/Loader'
 import { ListPhotos, ListPhotosLoaderWrapper } from './styles'
-import { useGetPhotos } from '../../hoc/queryPhotos'
+import { useGetPhotos } from '../../Graphql/queryPhotos'
 
 export const ListOfPhotoCards = ({ categoryId }) => {
   const { loading, error, data } = useGetPhotos(categoryId)
