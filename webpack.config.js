@@ -5,7 +5,8 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'app.bundle.js'
+    filename: 'app.bundle.js',
+    publicPath: '/'
   },
   resolve: {
     extensions: ['.js', '.jsx']
@@ -41,6 +42,9 @@ module.exports = {
     ]
   },
   devServer: {
+    historyApiFallback: {
+      disableDotRule: true
+    },
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
     open: true,

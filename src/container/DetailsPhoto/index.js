@@ -13,7 +13,9 @@ export const DetailsPhotoCard = ({ id }) => {
       </CenterLoader>
     )
   }
+
   if (error) return <h1>Error...</h1>
+
   return (
     <PhotoCard {...data.photo} />
   )

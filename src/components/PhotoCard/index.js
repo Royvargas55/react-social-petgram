@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from '@reach/router'
 import { useIntersectionObserver } from '../../hooks/useIntersectionObserver'
 import { useLocalStorage } from '../../hooks/useLocalStorage'
 import { useSetLikeAnonymousPhoto } from '../../Graphql/mutationLikePhotos'
@@ -25,11 +26,11 @@ export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
       {
         show &&
           <>
-            <a href={`/?detail=${id}`}>
+            <Link to={`/detail/${id}`}>
               <ImgWrapper>
                 <Img src={src} alt='image' />
               </ImgWrapper>
-            </a>
+            </Link>
             <FavButton liked={liked} likes={likes} onClick={handleFavClick} />
           </>
       }
