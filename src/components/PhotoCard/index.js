@@ -1,8 +1,9 @@
 import React from 'react'
 import { useIntersectionObserver } from '../../hooks/useIntersectionObserver'
 import { useLocalStorage } from '../../hooks/useLocalStorage'
-import { ImgWrapper, Img, Button, Article } from './styles'
-import { MdFavoriteBorder, MdFavorite } from 'react-icons/md'
+import { useSetLikeAnonymousPhoto } from '../../hoc/mutationLikePhotos'
+import { ImgWrapper, Img, Article } from './styles'
+import { FavButton } from '../FavButton'
 
 const DEFAULT_IMAGE = 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60'
 
@@ -12,22 +13,24 @@ export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
   const key = `like-${id}`
   const { storedValue: liked, setLocalStorage: setLiked } = useLocalStorage(key, false)
 
-  const Icon = liked ? MdFavorite : MdFavoriteBorder
+  const { toggleLike } = useSetLikeAnonymousPhoto(id)
+
+  const handleFavClick = () => {
+    !liked && toggleLike()
+    setLiked(!liked)
+  }
 
   return (
     <Article ref={element}>
       {
         show &&
           <>
-            <a href={`/detail/${id}`}>
+            <a href={`/?detail=${id}`}>
               <ImgWrapper>
                 <Img src={src} alt='image' />
               </ImgWrapper>
             </a>
-            <Button onClick={() => setLiked(!liked)}>
-              {}
-              <Icon color='#ff00ff' size='26px' /> {likes} Likes!
-            </Button>
+            <FavButton liked={liked} likes={likes} onClick={handleFavClick} />
           </>
       }
 

@@ -1,8 +1,8 @@
 /* eslint-disable react/jsx-key */
 import React, { useState, useEffect } from 'react'
 import { useCategoriesData } from '../../hooks/useCategoriesData'
-import { Category } from '../Category'
-import { Loader } from '../Loader'
+import { Category } from '../../components/Category'
+import { Loader } from '../../components/Loader'
 import { List, Item, LoaderWrapperListCategories } from './styles'
 
 const API = 'https://petgram-server-roy-react-91yyzd508-royvargas55.vercel.app/categories'
