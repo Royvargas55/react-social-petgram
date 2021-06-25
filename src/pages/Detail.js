@@ -1,8 +1,15 @@
 import React from 'react'
 import { DetailsPhotoCard } from '../container/DetailsPhoto'
+import { Helmet } from 'react-helmet'
 
 export const Detail = ({ id }) => {
   return (
-    <DetailsPhotoCard id={id} />
+    <>
+      <Helmet>
+        <title>Petgram - Detalles de la foto</title>
+        <meta name='description' content='Aqui encuentras tus fotos favoritas' />
+      </Helmet>
+      <DetailsPhotoCard id={id} />
+    </>
   )
 }

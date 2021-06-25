@@ -5,6 +5,7 @@ import { UserForm } from '../components/UserForm'
 import { useRegisterMutation, useLoginMutation } from '../Graphql/mutationUsers'
 import { Loader } from '../components/Loader'
 import { LoaderWrapperAccess } from '../components/Loader/styles'
+import { Helmet } from 'react-helmet'
 
 export const NotRegisteredUser = () => {
   const { activateAuth } = useAppState()
@@ -25,6 +26,10 @@ export const NotRegisteredUser = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Petgram - Inicia Sesión</title>
+        <meta name='description' content='Encuentra y postea fotos de las mascotas mas bonitas del mundo con Petgram' />
+      </Helmet>
       <UserForm error={errorMsg} onSubmit={handleSubmit} title='Iniciar Sesión' />
     </>
   )
@@ -51,6 +56,10 @@ export const NotRegisteredUserSignUp = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Petgram - Registrate</title>
+        <meta name='description' content='Encuentra y postea fotos de las mascotas mas bonitas del mundo con Petgram' />
+      </Helmet>
       <UserForm error={errorMsg} onSubmit={onSubmit} title='Registrate' />
     </>
   )
