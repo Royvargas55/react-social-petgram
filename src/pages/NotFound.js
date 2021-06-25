@@ -2,7 +2,7 @@ import React from 'react'
 import { NotFoundContainer } from '../container/NotFoundContainer'
 import { Helmet } from 'react-helmet'
 
-export const NotFound = () => {
+const NotFound = () => {
   return (
     <>
       <Helmet>
@@ -13,3 +13,5 @@ export const NotFound = () => {
     </>
   )
 }
+
+export default NotFound

@@ -7,7 +7,7 @@ import { List, Item, LoaderWrapperListCategories } from './styles'
 
 const API = 'https://petgram-server-roy-react-91yyzd508-royvargas55.vercel.app/categories'
 
-export const ListOfCategories = () => {
+const ListOfCategoriesComponent = () => {
   const { categories, loading } = useCategoriesData(API)
   const [showFixed, setShowFixed] = useState(false)
 
@@ -48,3 +48,5 @@ export const ListOfCategories = () => {
     </>
   )
 }
+
+export const ListOfCategories = React.memo(ListOfCategoriesComponent)

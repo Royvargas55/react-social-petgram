@@ -2,7 +2,7 @@ import React from 'react'
 import { DetailsPhotoCard } from '../container/DetailsPhoto'
 import { Helmet } from 'react-helmet'
 
-export const Detail = ({ id }) => {
+const Detail = ({ id }) => {
   return (
     <>
       <Helmet>
@@ -13,3 +13,5 @@ export const Detail = ({ id }) => {
     </>
   )
 }
+
+export default Detail

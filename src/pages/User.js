@@ -2,7 +2,7 @@ import React from 'react'
 import { UserSection } from '../container/UserSection'
 import { Helmet } from 'react-helmet'
 
-export const User = () => {
+const User = () => {
   return (
     <>
       <Helmet>
@@ -13,3 +13,5 @@ export const User = () => {
     </>
   )
 }
+
+export default User

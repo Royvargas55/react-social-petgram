@@ -1,22 +1,23 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { GlobalStyle } from './styles/GlobalStyles'
 import { Logo } from './components/Logo'
 import { NavBar } from './components/NavBar'
 
 import { Home } from './pages/Home'
-import { NotFound } from './pages/NotFound'
-import { Detail } from './pages/Detail'
-import { Fav } from './pages/Fav'
-import { User } from './pages/User'
 import { NotRegisteredUser, NotRegisteredUserSignUp } from './pages/NotRegisteredUser'
 
 import { Redirect, Router } from '@reach/router'
 import useAppState from './hooks/useAppState'
 
+const Fav = React.lazy(() => import('./pages/Fav'))
+const User = React.lazy(() => import('./pages/User'))
+const Detail = React.lazy(() => import('./pages/Detail'))
+const NotFound = React.lazy(() => import('./pages/NotFound'))
+
 const App = () => {
   const { isAuth } = useAppState()
   return (
-    <>
+    <Suspense fallback={<div />}>
       <GlobalStyle />
       <Logo />
       <Router>
@@ -33,7 +34,7 @@ const App = () => {
         <User exact path='/user' />
       </Router>
       <NavBar />
-    </>
+    </Suspense>
   )
 }
 

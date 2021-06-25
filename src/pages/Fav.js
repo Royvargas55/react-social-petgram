@@ -2,7 +2,7 @@ import React from 'react'
 import { ListOfFavs } from '../container/ListOfFavs'
 import { Helmet } from 'react-helmet'
 
-export const Fav = () => {
+const Fav = () => {
   return (
     <>
       <Helmet>
@@ -13,3 +13,5 @@ export const Fav = () => {
     </>
   )
 }
+
+export default Fav
