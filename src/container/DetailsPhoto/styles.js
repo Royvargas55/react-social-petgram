@@ -9,3 +9,6 @@ export const CenterLoader = styled.div`
     position: relative;
     width: 100%;
 `
+export const PhotoWrapper = styled.div`
+    padding: 12px;
+`

@@ -34,3 +34,21 @@ export const useGetSinglePhoto = (id) => {
   const { loading, error, data } = useQuery(GET_SINGLE_PHOTO, { variables: { id } })
   return { loading, error, data }
 }
+
+const GET_FAVS = gql`
+    query getFavs {
+        favs {
+            id
+            categoryId
+            src
+            likes
+            userId
+            liked
+        }
+    }
+`
+
+export const useGetFavs = () => {
+  const { data, error, loading } = useQuery(GET_FAVS, { fetchPolicy: 'cache-and-network' })
+  return { data, error, loading }
+}

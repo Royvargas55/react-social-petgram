@@ -7,15 +7,13 @@ import { Home } from './pages/Home'
 import { Detail } from './pages/Detail'
 import { Fav } from './pages/Fav'
 import { User } from './pages/User'
-import { NotRegisteredUser } from './pages/NotRegisteredUser'
+import { NotRegisteredUser, NotRegisteredUserSignUp } from './pages/NotRegisteredUser'
 
 import { Router } from '@reach/router'
-
-const UserLogged = ({ children }) => {
-  return children({ isAuth: false })
-}
+import useAppState from './hooks/useAppState'
 
 const App = () => {
+  const { isAuth } = useAppState()
   return (
     <>
       <GlobalStyle />
@@ -25,20 +23,23 @@ const App = () => {
         <Home exact path='/pet/:id' />
         <Detail exact path='/detail/:id' />
       </Router>
-      <UserLogged>
-        {
-          ({ isAuth }) =>
-            isAuth
-              ? <Router>
-                <Fav path='/favs' />
-                <User path='/user' />
-                </Router>
-              : <Router>
-                <NotRegisteredUser path='/favs' />
-                <NotRegisteredUser path='/user' />
-                </Router>
-        }
-      </UserLogged>
+      {
+        isAuth
+          ? (
+            <Router>
+              <Fav path='/favs' />
+              <User path='/user' />
+            </Router>
+            )
+          : (
+            <Router>
+              <NotRegisteredUser path='/favs' />
+              <NotRegisteredUser path='/user' />
+              <NotRegisteredUser path='/signin' />
+              <NotRegisteredUserSignUp path='/signup' />
+            </Router>
+            )
+      }
       <NavBar />
     </>
   )

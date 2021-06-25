@@ -1,9 +1,10 @@
 import React from 'react'
+import { UserSection } from '../container/UserSection'
 
 export const User = () => {
   return (
-    <div>
-      <h1>User</h1>
-    </div>
+    <>
+      <UserSection />
+    </>
   )
 }

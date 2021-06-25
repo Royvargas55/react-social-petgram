@@ -1,9 +1,10 @@
 import React from 'react'
+import { ListOfFavs } from '../container/ListOfFavs'
 
 export const Fav = () => {
   return (
     <div>
-      <h1>Favorito</h1>
+      <ListOfFavs />
     </div>
   )
 }

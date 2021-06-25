@@ -1,6 +1,6 @@
 import React from 'react'
 import { Loader } from '../../components/Loader'
-import { CenterLoader } from './styles'
+import { CenterLoader, PhotoWrapper } from './styles'
 import { useGetSinglePhoto } from '../../Graphql/queryPhotos'
 import { PhotoCard } from '../../components/PhotoCard'
 
@@ -17,6 +17,8 @@ export const DetailsPhotoCard = ({ id }) => {
   if (error) return <h1>Error...</h1>
 
   return (
-    <PhotoCard {...data.photo} />
+    <PhotoWrapper>
+      <PhotoCard {...data.photo} />
+    </PhotoWrapper>
   )
 }

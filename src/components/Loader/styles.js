@@ -76,3 +76,9 @@ export const LoaderWrapper = styled.div`
     left: 62px;
  }
 `
+
+export const LoaderWrapperAccess = styled.div`
+  width: 50%;
+  margin-top: 50%;
+  margin-left: 40%
+`
