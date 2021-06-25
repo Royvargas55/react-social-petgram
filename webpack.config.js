@@ -1,6 +1,8 @@
+/* eslint-disable prefer-regex-literals */
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CopyPlugin = require('copy-webpack-plugin')
+const WebpackPwaManifestPlugin = require('webpack-pwa-manifest')
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
 
 module.exports = {
   entry: './src/index.js',
@@ -16,12 +18,38 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'public/index.html'
     }),
-    new CopyPlugin({
-      patterns: [
-        { from: 'public/manifest.json', to: '' },
-        { from: 'public/service-worker.js', to: '' },
-        { from: 'public/assets/icon.png', to: 'assets' }
+    new WebpackPwaManifestPlugin({
+      name: 'Petgram - Red social para mascotas',
+      shortname: 'Petgram 🐶',
+      description: 'Postea las mejores fotos de tus mascotas',
+      background_color: '#fff',
+      theme_color: '#9f2fff',
+      icons: [
+        {
+          src: path.resolve('public/assets/icon.png'),
+          sizes: [96, 128, 192, 256, 384, 512],
+          purpose: 'any maskable'
+        }
       ]
+    }),
+    new WorkboxWebpackPlugin.GenerateSW({
+      runtimeCaching: [
+        {
+          urlPattern: new RegExp('https://(res.cloudinary.com|images.unsplash.com)'),
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'images'
+          }
+        },
+        {
+          urlPattern: new RegExp('https://petgram-server-roy-react.vercel.app'),
+          handler: 'NetworkFirst',
+          options: {
+            cacheName: 'api'
+          }
+        }
+      ],
+      maximumFileSizeToCacheInBytes: 5000000
     })
   ],
   module: {

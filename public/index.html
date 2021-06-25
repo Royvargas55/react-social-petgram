@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#b1a" />
     <link rel="apple-touch-icon" href="assets/icon.png">
-    <link rel="manifest" href="./manifest.json">
     <title>Petgram</title>
 </head>
 
@@ -19,16 +18,14 @@
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function () {
-                navigator.serviceWorker.register('service-worker.js').then(function (registration) {
-                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                }, function (err) {
-                    console.log('ServiceWorker registration failed: ', err);
-                }).catch(function (err) {
-                    console.log(err)
-                });
-            });
-        } else {
-            console.log('service worker is not supported');
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('SW registrado')
+                    })
+                    .catch(registrationError => {
+                        console.log('SW error', registrationError)
+                    })
+            })
         }
     </script>
 </body>
