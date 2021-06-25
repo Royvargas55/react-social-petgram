@@ -2,9 +2,9 @@
     "icons": [
         {
             "src": "assets/icon.png",
-            "sizes": [96, 128, 192, 256, 384, 512],
+            "sizes": [128],
             "type": "image/png",
-            "purpose": "any maskable"
+            "purpose": "maskable"
         }
     ],
     "name": "Petgram - Red social para mascotas",
