@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import { ApolloClient, from, ApolloProvider as Aprovider, InMemoryCache, createHttpLink } from '@apollo/client'
-import { setContext } from '@apollo/client/link/context'
-import { onError } from '@apollo/client/link/error'
+import { ApolloClient, from, ApolloProvider as Aprovider, InMemoryCache, createHttpLink } from '@apollo/react-hooks'
+import { setContext } from 'apollo-link-context'
+import { onError } from 'apollo-link-error'
 
 import { AppState } from './Context/AppState'
 import App from './App'
