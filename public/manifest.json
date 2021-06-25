@@ -1,0 +1,19 @@
+{
+    "icons": [
+        {
+            "src": "assets/icon.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "name": "Petgram - Red social para mascotas",
+    "short_name": "Petgram - Red social para mascotas",
+    "orientation": "portrait",
+    "display": "standalone",
+    "start_url": ".",
+    "shortname": "Petgram 🐶",
+    "description": "Postea las mejores fotos de tus mascotas",
+    "background_color": "#fff",
+    "theme_color": "#b1a"
+}
