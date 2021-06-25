@@ -8,7 +8,7 @@ export const SubmitButton = ({ title, type, onClick }) => {
   )
 }
 
-SubmitButton.PropTypes = {
+SubmitButton.propTypes = {
   title: PropTypes.string.isRequired,
   type: PropTypes.string,
   onClick: PropTypes.func
